@@ -35,15 +35,16 @@ class Employee(AbstractBaseUser):
     Employee
     """
 
-    id = models.AutoField("Id", auto_created=True, primary_key=True, serialize=False)
+    # id = models.AutoField("Id", auto_created=True, primary_key=True, serialize=False)
     role = models.CharField("Role", max_length=20, choices=role_type_choices, null=False)
-    employee_id = models.CharField("Employee Id", max_length=255,  unique=True, blank=False)
+    employee_id = models.CharField("Employee Id", max_length=255, primary_key=True,  unique=True, blank=False)
+    USERNAME_FIELD = 'employee_id'
     first_name = models.CharField("First Name", max_length=125)
     last_name = models.CharField("Last Name", max_length=125)
     gender = models.CharField("Gender", choices=GENDERS, max_length=2, null=False)
     email = models.EmailField("Email", unique=True)
     phone = models.CharField("Phone", max_length=255, null=False)
-    picture = models.FileField(upload_to='documents/%Y/%m/%d',blank=True, null=True) 
+    picture = models.FileField(upload_to='profile_images/%Y/%m/%d',blank=True, null=True) 
     
     class Meta:
         managed = True
