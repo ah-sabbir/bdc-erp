@@ -25,8 +25,8 @@ class in_out_track(models.Model):
 
 
 class LeaveApplication(models.Model):
-	employee           = models.ForeignKey(Employee, blank=True, null=True, related_name="LeaveApplicant",on_delete=models.CASCADE)
-	hr_manager         = models.ForeignKey(Employee, blank=True, null=True,related_name="HRManagerProcess",on_delete=models.CASCADE)
+	employee           = models.ForeignKey(Employee, blank=False, null=False, related_name="LeaveApplicant",on_delete=models.CASCADE)
+	hr_manager         = models.ForeignKey(Employee, blank=False, null=False, related_name="HRManagerProcess",on_delete=models.CASCADE)
 	subject            = models.CharField(max_length=255,blank=True, null=True)
 	description        = models.TextField(blank=True, null=True)
 	date_from          = models.DateField( blank=True, null=True)

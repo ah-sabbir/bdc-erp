@@ -13,4 +13,9 @@ class EmployeeAdmin(admin.ModelAdmin):
 
 admin.site.register(Employee, EmployeeAdmin) 
 
+class DepartmentAdmin(admin.ModelAdmin):
+    model = Department
+    list_display = ('id', 'department_name', 'department_code', 'department_description', 'department_head', 'department_head_phone', 'department_head_email', 'department_head_picture', 'revenue')
+# DepartmentAdmin
+admin.site.register(Department, DepartmentAdmin)
 # Register your models here.
